@@ -47,6 +47,16 @@ public class UserService implements DataService {
         return this.users;
     }
 
+    public List<Student> convertUserToStudent() {
+        List<Student> arrStudents = new ArrayList<>();
+        for (User usr: this.users) {
+            if (usr instanceof Student) {
+                arrStudents.add((Student) usr);
+            }
+        }
+        return arrStudents;
+    }
+
     @Override
     public void deleteUser(Long id) {
         for (User user : this.users) {

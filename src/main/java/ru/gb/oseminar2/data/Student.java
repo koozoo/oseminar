@@ -1,8 +1,11 @@
 package ru.gb.oseminar2.data;
 
-public class Student extends User{
+import java.util.List;
+
+public class Student extends User {
 
     private Long student_id;
+    private Long groupID;
 
     public Student(String firsname, String lastname, String patronymic, Long student_id) {
         super(firsname, lastname, patronymic);
@@ -14,6 +17,13 @@ public class Student extends User{
         this.student_id = student_id;
     }
 
+    public Long getGroupID() {
+        return groupID;
+    }
+
+    public void setGroupID(Long groupID) {
+        this.groupID = groupID;
+    }
 
     @Override
     public String toString() {

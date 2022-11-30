@@ -10,22 +10,41 @@ import java.util.List;
 
 public class StudyGroupService{
 
-    private StudyGroup studyGroup;
+    private List<StudyGroup> studyGroups;
 
 
     public StudyGroupService() {
-
+        this.studyGroups = new ArrayList<StudyGroup>();
     }
 
     public void createStudyGroup(Teacher teacher, List<Student> students) {
-        this.studyGroup = new StudyGroup(teacher, students);
+        Long groupID = 0L;
+        for (StudyGroup group: this.studyGroups) {
+            if (groupID < (group.getGroupID())){
+                groupID = group.getGroupID();
+            }
+        }
+        ++ groupID;
+        teacher.setGroupID(groupID);
+        for (Student student: students){
+            student.setGroupID(groupID);
+        }
+        this.studyGroups.add(new StudyGroup(teacher, students, groupID));
     }
 
-    public StudyGroup getStudyGroup() {
-        return studyGroup;
+    public List<StudyGroup> getStudyGroup() {
+        return studyGroups;
     }
 
-    public void setStudyGroup(StudyGroup studyGroup) {
-        this.studyGroup = studyGroup;
+    public void setStudyGroup(List<StudyGroup> studyGroup) {
+        this.studyGroups = studyGroup;
+    }
+
+    public List<StudyGroup> getStudyGroups() {
+        return studyGroups;
+    }
+
+    public void setStudyGroups(List<StudyGroup> studyGroups) {
+        this.studyGroups = studyGroups;
     }
 }

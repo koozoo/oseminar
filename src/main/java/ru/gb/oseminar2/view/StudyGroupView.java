@@ -9,11 +9,13 @@ import java.util.logging.Logger;
 
 public class StudyGroupView {
 
-    public void sendOnConsole(StudyGroup studyGroup){
+    public void sendOnConsole(List<StudyGroup> studyGroups){
         Logger log = Logger.getLogger(StudyGroupView.class.getName());
-        Teacher teacher = studyGroup.getTeacher();
-        List<Student> students = studyGroup.getStudents();
-        log.info("StudyGroup " + "(" +teacher.toString()+ " and Students:" + students.toString());
+        for (StudyGroup group: studyGroups) {
+            log.info("StudyGroup ");
+//            log.info("StudyGroup " + "(" +teacher.toString()+ " and Students:" + students.toString());
+        }
+
     }
 
 }

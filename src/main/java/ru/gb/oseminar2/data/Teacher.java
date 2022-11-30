@@ -2,6 +2,7 @@ package ru.gb.oseminar2.data;
 
 public class Teacher extends User{
     private Long teacherID;
+    private Long groupID;
 
     public Teacher(String firsname, String lastname, String patronymic, Long teacherID) {
         super(firsname, lastname, patronymic);
@@ -14,6 +15,14 @@ public class Teacher extends User{
 
     public void setTeacherID(Long teacherID) {
         this.teacherID = teacherID;
+    }
+
+    public Long getGroupID() {
+        return groupID;
+    }
+
+    public void setGroupID(Long groupID) {
+        this.groupID = groupID;
     }
 
     @Override
